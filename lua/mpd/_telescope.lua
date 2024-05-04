@@ -16,8 +16,8 @@ local function find(results, callback, opts)
       attach_mappings = function(b, _)
         actions.select_default:replace(function()
           actions.close(b)
-          local song = action_state.get_selected_entry()
-          callback(song[1])
+          local result = action_state.get_selected_entry()
+          callback(result[1])
         end)
 
         return true
