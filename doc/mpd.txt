@@ -1,0 +1,30 @@
+*mpd.nvim*
+
+Control your mpd from inside neovim.
+
+USAGE
+==============================================================================
+Setup
+```lua
+require('mpd').setup({
+  host = '127.0.0.1',
+  port = '6600', -- is quite possible that you use another port for mpd
+})
+```
+
+Telescope
+```lua
+require('mpd').actions(opts)   -- opts are used for telescope picker
+require('mpd').find_song(opts) -- keeping it `nil` is a good default
+require('mpd').find_album(opts)
+```
+
+Other Functions
+```lua
+require('mpd').pause() -- pause currently playing song
+require('mpd').play() -- resume/start playing
+require('mpd').toggle() -- toggle pause/play
+require('mpd').next() -- skip song/play next
+require('mpd').prev() -- previous song
+```
+vim:tw=78:ft=help:norl:et:ts=2:sw=2:fen:fdl=0:
