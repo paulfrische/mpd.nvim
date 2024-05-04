@@ -26,12 +26,12 @@ local function find(results, callback, opts)
     :find()
 end
 
-function M.song()
-  find(mpd.songs(), mpd.add)
+function M.song(opts)
+  find(mpd.songs(), mpd.add, opts)
 end
 
-function M.album()
-  find(mpd.albums(), mpd.add_album)
+function M.album(opts)
+  find(mpd.albums(), mpd.add_album, opts)
 end
 
 function M.actions(opts)
@@ -39,11 +39,11 @@ function M.actions(opts)
     .new(opts or {}, {
       finder = finders.new_table({
         results = {
-          { 'Next', mpd.next },
+          { 'Next / Skip', mpd.next },
           { 'Previous', mpd.prev },
           { 'Add Song', M.song },
           { 'Add Album', M.album },
-          { 'Clear', mpd.clear },
+          { 'Clear Playlist', mpd.clear },
           { 'Pause', mpd.pause },
           { 'Play', mpd.play },
           { 'Toggle', mpd.toggle },
