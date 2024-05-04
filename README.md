@@ -3,6 +3,8 @@ Control your music from inside neovim.
 
 `mpd.nvim` allows you to control [mpd](https://www.musicpd.org/) from inside Neovim via Telescope.
 
+![image](https://github.com/paulfrische/mpd.nvim/assets/61984114/294f8ab6-af02-4ccc-a1e5-e14168ca4b52)
+
 ## Usage
 ### Setup
 ```lua
