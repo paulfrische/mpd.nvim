@@ -8,10 +8,10 @@ local mpd = require('mpd._mpd')
 
 local M = {}
 
-function M.find_song(callback, opts)
+local function find(results, callback, opts)
   pickers
     .new(opts or {}, {
-      finder = finders.new_table(mpd.songs()),
+      finder = finders.new_table(results),
       sorter = config.generic_sorter(opts),
       attach_mappings = function(b, _)
         actions.select_default:replace(function()
@@ -26,6 +26,14 @@ function M.find_song(callback, opts)
     :find()
 end
 
+function M.song()
+  find(mpd.songs(), mpd.add)
+end
+
+function M.album()
+  find(mpd.albums(), mpd.add_album)
+end
+
 function M.actions(opts)
   pickers
     .new(opts or {}, {
@@ -33,12 +41,8 @@ function M.actions(opts)
         results = {
           { 'Next', mpd.next },
           { 'Previous', mpd.prev },
-          {
-            'Add',
-            function()
-              M.find_song(mpd.add)
-            end,
-          },
+          { 'Add Song', M.song },
+          { 'Add Album', M.album },
           { 'Clear', mpd.clear },
           { 'Pause', mpd.pause },
           { 'Play', mpd.play },

@@ -18,12 +18,27 @@ end
 
 -- get all songs
 function M.songs()
-  return vim.split(mpc({ 'list', 'Title' }), '\n')
+  return vim.split(mpc({ 'list', 'title' }), '\n')
+end
+
+-- get all songs on album
+function M.songs_on_album(album)
+  return vim.split(mpc({ 'find', 'album', album }), '\n')
+end
+
+-- add all songs on album
+function M.add_album(album)
+  mpc({ 'findadd', 'album', album })
+end
+
+-- get all albums
+function M.albums()
+  return vim.split(mpc({ 'list', 'album' }), '\n')
 end
 
 -- add song to playlist
 function M.add(song)
-  mpc({ 'findadd', 'Title', song })
+  mpc({ 'findadd', 'title', song })
 end
 
 -- clear playlist
