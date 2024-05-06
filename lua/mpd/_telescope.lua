@@ -47,6 +47,7 @@ function M.actions(opts)
           { 'Pause', mpd.pause },
           { 'Play', mpd.play },
           { 'Toggle', mpd.toggle },
+          { 'Shuffle', mpd.shuffle },
         },
         entry_maker = function(entry)
           return {

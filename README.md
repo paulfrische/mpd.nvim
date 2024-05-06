@@ -28,4 +28,5 @@ require('mpd').play() -- resume/start playing
 require('mpd').toggle() -- toggle pause/play
 require('mpd').next() -- skip song/play next
 require('mpd').prev() -- previous song
+require('mpd').shuffle() -- shuffle queue
 ```

@@ -71,4 +71,9 @@ function M.prev()
   mpc({ 'prev' })
 end
 
+-- shuffle
+function M.shuffle()
+  mpc({ 'shuffle' })
+end
+
 return M
